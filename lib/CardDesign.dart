@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CardDesign extends StatelessWidget {
-  final itemTitle, itemColor, itemSize, itemQuantity, itemPrice, itemUrl;
+class CardDesign extends StatefulWidget {
+  final itemTitle, itemColor, itemSize, itemPrice, itemUrl;
+  int itemQuantity;
 
-  const CardDesign({
+  CardDesign({
     super.key,
     required this.itemTitle,
     required this.itemColor,
@@ -13,6 +14,11 @@ class CardDesign extends StatelessWidget {
     required this.itemUrl,
   });
 
+  @override
+  State<CardDesign> createState() => _CardDesignState();
+}
+
+class _CardDesignState extends State<CardDesign> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -34,7 +40,7 @@ class CardDesign extends StatelessWidget {
                     bottomLeft: Radius.circular(12),
                   ),
                   child: Image.asset(
-                    itemUrl,
+                    widget.itemUrl,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -51,7 +57,7 @@ class CardDesign extends StatelessWidget {
                       //     MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "${itemTitle}",
+                          "${widget.itemTitle}",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w600),
                         ),
@@ -72,7 +78,7 @@ class CardDesign extends StatelessWidget {
                               children: [
                                 TextSpan(text: "Color: "),
                                 TextSpan(
-                                  text: "${itemColor}",
+                                  text: "${widget.itemColor}",
                                   style: TextStyle(
                                       color: Colors.black54,
                                       fontWeight: FontWeight.w500),
@@ -89,7 +95,7 @@ class CardDesign extends StatelessWidget {
                               children: [
                                 TextSpan(text: "Size: "),
                                 TextSpan(
-                                  text: "${itemSize}",
+                                  text: "${widget.itemSize}",
                                   style: TextStyle(
                                       color: Colors.black54,
                                       fontWeight: FontWeight.w500),
@@ -108,7 +114,12 @@ class CardDesign extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                if (widget.itemQuantity > 0) {
+                                  widget.itemQuantity--;
+                                  setState(() {});
+                                }
+                              },
                               icon: Icon(Icons.remove_rounded),
                               color: Colors.black54,
                               style: IconButton.styleFrom(
@@ -120,13 +131,16 @@ class CardDesign extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 15),
                               child: Text(
-                                "${itemQuantity}",
+                                "${widget.itemQuantity}",
                                 style: TextStyle(
                                     fontSize: 20, color: Colors.black54),
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                widget.itemQuantity++;
+                                setState(() {});
+                              },
                               icon: Icon(Icons.add_rounded),
                               color: Colors.black54,
                               style: IconButton.styleFrom(
@@ -139,7 +153,7 @@ class CardDesign extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 12),
                           child: Text(
-                            "${itemPrice}\$",
+                            "${widget.itemPrice}\$",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 18),
                           ),
