@@ -139,6 +139,43 @@ class _CardDesignState extends State<CardDesign> {
                             IconButton(
                               onPressed: () {
                                 widget.itemQuantity++;
+                                if (widget.itemQuantity == 5) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      surfaceTintColor: Colors.white,
+                                      backgroundColor: Colors.white,
+                                      title: Text(
+                                        "Congratulations!",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700),
+                                      ),
+                                      content: Text(
+                                        "You have added \n5\n${widget.itemTitle} on your bag!",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontWeight: FontWeight.w600),
+                                      ),
+                                      actions: [
+                                        SizedBox(
+                                          width: double.infinity,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text(
+                                              "OKAY",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.red),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }
                                 setState(() {});
                               },
                               icon: Icon(Icons.add_rounded),
