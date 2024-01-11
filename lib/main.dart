@@ -32,16 +32,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _totalAmount = 0;
 
-  void increaseAmount(int val) {
-    _totalAmount += val;
-    setState(() {});
-  }
-
-  void decreaseAmount(int val) {
-    _totalAmount -= val;
-    setState(() {});
-  }
-
   List itemList = [
     CardDesign(
       itemTitle: "Pullover",
