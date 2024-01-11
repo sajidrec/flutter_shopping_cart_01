@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardDesign extends StatefulWidget {
-  final itemTitle, itemColor, itemSize, itemPrice, itemUrl;
-  int itemQuantity;
+  final itemTitle, itemColor, itemSize, itemUrl;
+  int itemQuantity, showPrice = 0, itemPrice;
 
   CardDesign({
     super.key,
@@ -117,6 +117,7 @@ class _CardDesignState extends State<CardDesign> {
                               onPressed: () {
                                 if (widget.itemQuantity > 0) {
                                   widget.itemQuantity--;
+                                  widget.showPrice -= widget.itemPrice;
                                   setState(() {});
                                 }
                               },
@@ -139,6 +140,7 @@ class _CardDesignState extends State<CardDesign> {
                             IconButton(
                               onPressed: () {
                                 widget.itemQuantity++;
+                                widget.showPrice += widget.itemPrice;
                                 if (widget.itemQuantity == 5) {
                                   showDialog(
                                     context: context,
@@ -154,7 +156,8 @@ class _CardDesignState extends State<CardDesign> {
                                       content: Text(
                                         "You have added \n5\n${widget.itemTitle} on your bag!",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(fontWeight: FontWeight.w600),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                       actions: [
                                         SizedBox(
@@ -190,7 +193,7 @@ class _CardDesignState extends State<CardDesign> {
                         Padding(
                           padding: EdgeInsets.only(right: 12),
                           child: Text(
-                            "${widget.itemPrice}\$",
+                            "${widget.showPrice}\$",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 18),
                           ),
