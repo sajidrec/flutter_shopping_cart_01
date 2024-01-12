@@ -36,8 +36,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  
   List itemList = DB.items;
+
+  @override
+  void initState() {
+    // itemList = DB.items;
+
+    int totalPrice = 0;
+
+    itemList.forEach((element) {
+      totalPrice += int.parse(element.itemPrice.toString()) *
+          int.parse(element.itemQuantity.toString());
+    });
+    Provider.of<TotalAmount>(context, listen: false).increaseAmount(totalPrice);
+    // print("Maybe working thickk $totalPrice");
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
