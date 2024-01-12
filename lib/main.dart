@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
           int.parse(element.itemQuantity.toString());
     });
     Provider.of<TotalAmount>(context, listen: false).increaseAmount(totalPrice);
-    // print("Maybe working thickk $totalPrice");
+    // print("Maybe working $totalPrice");
 
     super.initState();
   }
