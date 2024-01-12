@@ -49,10 +49,10 @@ class _MyAppState extends State<MyApp> {
     Future.microtask(() {
       int totalPrice = 0;
 
-      itemList.forEach((element) {
+      for (var element in itemList) {
         totalPrice += int.parse(element.itemPrice.toString()) *
             int.parse(element.itemQuantity.toString());
-      });
+      }
 
       Provider.of<TotalAmount>(context, listen: false)
           .increaseAmount(totalPrice);

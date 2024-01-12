@@ -3,7 +3,7 @@ import 'package:flutter_shoping_cart/TotalAmount.dart';
 import 'package:provider/provider.dart';
 
 class CardDesign extends StatefulWidget {
-  final itemTitle, itemColor, itemSize, itemUrl;
+  final String itemTitle, itemColor, itemSize, itemUrl;
   int itemQuantity, showPrice = 0, itemPrice;
 
   CardDesign({
@@ -60,7 +60,7 @@ class _CardDesignState extends State<CardDesign> {
                         //     MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "${widget.itemTitle}",
+                            widget.itemTitle.toString(),
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -81,7 +81,7 @@ class _CardDesignState extends State<CardDesign> {
                                 children: [
                                   const TextSpan(text: "Color: "),
                                   TextSpan(
-                                    text: "${widget.itemColor}",
+                                    text: widget.itemColor.toString(),
                                     style: const TextStyle(
                                         color: Colors.black54,
                                         fontWeight: FontWeight.w500),
@@ -98,7 +98,7 @@ class _CardDesignState extends State<CardDesign> {
                                 children: [
                                   const TextSpan(text: "Size: "),
                                   TextSpan(
-                                    text: "${widget.itemSize}",
+                                    text: widget.itemSize.toString(),
                                     style: const TextStyle(
                                         color: Colors.black54,
                                         fontWeight: FontWeight.w500),
