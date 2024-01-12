@@ -14,7 +14,7 @@ class CardDesign extends StatefulWidget {
     required this.itemQuantity,
     required this.itemPrice,
     required this.itemUrl,
-  });
+  }) : showPrice = itemQuantity * itemPrice;
 
   @override
   State<CardDesign> createState() => _CardDesignState();
