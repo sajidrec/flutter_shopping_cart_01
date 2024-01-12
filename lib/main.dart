@@ -1,14 +1,17 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shoping_cart/DB/DB.dart';
 import 'package:flutter_shoping_cart/TotalAmount.dart';
 import 'package:provider/provider.dart';
 
-import 'CardDesign.dart';
-
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => TotalAmount(),
-    child: MyMaterialApp(),
+  runApp(DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => ChangeNotifierProvider(
+      create: (context) => TotalAmount(),
+      child: MyMaterialApp(),
+    ),
   ));
 }
 
@@ -22,6 +25,7 @@ class MyMaterialApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Metropolis',
         scaffoldBackgroundColor: Color.fromRGBO(249, 249, 249, 1),
+        useMaterial3: true,
       ),
       home: MyApp(),
     );
@@ -106,18 +110,22 @@ class _MyAppState extends State<MyApp> {
               ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Congratulation!"),
-                      duration: Duration(milliseconds: 1500),
-                    ));
-                  },
-                  child: Text(
-                    "CHECK OUT",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("Congratulation!"),
+                        duration: Duration(milliseconds: 1500),
+                      ));
+                    },
+                    child: Text(
+                      "CHECK OUT",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   ),
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 ),
               )
             ],
