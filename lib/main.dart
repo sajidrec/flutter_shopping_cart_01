@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shoping_cart/DB/DB.dart';
 import 'package:flutter_shoping_cart/TotalAmount.dart';
 import 'package:provider/provider.dart';
 
@@ -35,33 +36,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  List itemList = [
-    CardDesign(
-      itemTitle: "Pullover",
-      itemColor: "Black",
-      itemSize: "L",
-      itemQuantity: 0,
-      itemPrice: 51,
-      itemUrl: "assets/images/pullover.png",
-    ),
-    CardDesign(
-      itemTitle: "T-Shirt",
-      itemColor: "Gray",
-      itemSize: "L",
-      itemQuantity: 0,
-      itemPrice: 30,
-      itemUrl: "assets/images/t_shirt.png",
-    ),
-    CardDesign(
-      itemTitle: "Sport Dress",
-      itemColor: "Black",
-      itemSize: "M",
-      itemQuantity: 0,
-      itemPrice: 43,
-      itemUrl: "assets/images/sport_dress.png",
-    ),
-  ];
+  List itemList = DB.items;
 
   @override
   Widget build(BuildContext context) {
