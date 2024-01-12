@@ -27,13 +27,13 @@ class MyMaterialApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color.fromRGBO(249, 249, 249, 1),
         useMaterial3: true,
       ),
-      home: MyApp(),
+      home: const MyApp(),
     );
   }
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
