@@ -44,6 +44,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    super.initState();
+
     // itemList = DB.items;
 
     int totalPrice = 0;
@@ -54,8 +56,6 @@ class _MyAppState extends State<MyApp> {
     });
     Provider.of<TotalAmount>(context, listen: false).increaseAmount(totalPrice);
     // print("Maybe working $totalPrice");
-
-    super.initState();
   }
 
   @override
