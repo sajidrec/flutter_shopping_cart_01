@@ -10,7 +10,7 @@ void main() {
     enabled: !kReleaseMode,
     builder: (context) => ChangeNotifierProvider(
       create: (context) => TotalAmount(),
-      child: MyMaterialApp(),
+      child: const MyMaterialApp(),
     ),
   ));
 }
@@ -24,7 +24,7 @@ class MyMaterialApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Metropolis',
-        scaffoldBackgroundColor: Color.fromRGBO(249, 249, 249, 1),
+        scaffoldBackgroundColor: const Color.fromRGBO(249, 249, 249, 1),
         useMaterial3: true,
       ),
       home: MyApp(),
@@ -64,10 +64,10 @@ class _MyAppState extends State<MyApp> {
     return Consumer<TotalAmount>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(249, 249, 249, 1),
-          actions: [
+          backgroundColor: const Color.fromRGBO(249, 249, 249, 1),
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 10),
+              padding: EdgeInsets.only(right: 10),
               child: Icon(Icons.search, size: 25),
             ),
           ],
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "My Bag",
                 style: TextStyle(
                   fontSize: 32,
@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: ListView.separated(
                     itemBuilder: (context, index) => itemList[index],
-                    separatorBuilder: (context, index) => Divider(
+                    separatorBuilder: (context, index) => const Divider(
                           height: 15,
                           color: Colors.transparent,
                         ),
@@ -95,17 +95,18 @@ class _MyAppState extends State<MyApp> {
               ),
               Row(
                 children: [
-                  Text(
+                  const Text(
                     "Total amount",
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.black54,
                         fontWeight: FontWeight.w600),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "${value.totalAmount.toString()}\$",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w700),
                   )
                 ],
               ),
@@ -115,17 +116,17 @@ class _MyAppState extends State<MyApp> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: ElevatedButton(
                     onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Congratulation!"),
                         duration: Duration(milliseconds: 1500),
                       ));
                     },
-                    child: Text(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    child: const Text(
                       "CHECK OUT",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   ),
                 ),
               )

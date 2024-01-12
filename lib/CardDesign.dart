@@ -38,7 +38,7 @@ class _CardDesignState extends State<CardDesign> {
                 child: SizedBox(
                   height: double.infinity,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(12),
                       bottomLeft: Radius.circular(12),
                     ),
@@ -52,7 +52,7 @@ class _CardDesignState extends State<CardDesign> {
               Expanded(
                 flex: 6,
                 child: Padding(
-                  padding: EdgeInsets.all(7),
+                  padding: const EdgeInsets.all(7),
                   child: Column(
                     children: [
                       Row(
@@ -61,11 +61,11 @@ class _CardDesignState extends State<CardDesign> {
                         children: [
                           Text(
                             "${widget.itemTitle}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
-                          Spacer(),
-                          Icon(
+                          const Spacer(),
+                          const Icon(
                             Icons.more_vert_rounded,
                             color: Colors.grey,
                             size: 28,
@@ -76,30 +76,30 @@ class _CardDesignState extends State<CardDesign> {
                         children: [
                           RichText(
                             text: TextSpan(
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 16),
+                                style: const TextStyle(
+                                    color: Colors.grey, fontSize: 16),
                                 children: [
-                                  TextSpan(text: "Color: "),
+                                  const TextSpan(text: "Color: "),
                                   TextSpan(
                                     text: "${widget.itemColor}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black54,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ]),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           RichText(
                             text: TextSpan(
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 16),
+                                style: const TextStyle(
+                                    color: Colors.grey, fontSize: 16),
                                 children: [
-                                  TextSpan(text: "Size: "),
+                                  const TextSpan(text: "Size: "),
                                   TextSpan(
                                     text: "${widget.itemSize}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black54,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -107,7 +107,7 @@ class _CardDesignState extends State<CardDesign> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 14,
                       ),
                       Row(
@@ -129,7 +129,7 @@ class _CardDesignState extends State<CardDesign> {
                                     setState(() {});
                                   }
                                 },
-                                icon: Icon(Icons.remove_rounded),
+                                icon: const Icon(Icons.remove_rounded),
                                 color: Colors.black54,
                                 style: IconButton.styleFrom(
                                     elevation: 3,
@@ -141,7 +141,7 @@ class _CardDesignState extends State<CardDesign> {
                                     const EdgeInsets.symmetric(horizontal: 15),
                                 child: Text(
                                   "${widget.itemQuantity}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20, color: Colors.black54),
                                 ),
                               ),
@@ -160,7 +160,7 @@ class _CardDesignState extends State<CardDesign> {
                                       builder: (context) => AlertDialog(
                                         surfaceTintColor: Colors.white,
                                         backgroundColor: Colors.white,
-                                        title: Text(
+                                        title: const Text(
                                           "Congratulations!",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
@@ -170,7 +170,7 @@ class _CardDesignState extends State<CardDesign> {
                                         content: Text(
                                           "You have added \n5\n${widget.itemTitle} on your bag!",
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.w600,
                                               fontFamily: "Inter"),
                                         ),
@@ -181,14 +181,14 @@ class _CardDesignState extends State<CardDesign> {
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },
-                                              child: Text(
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: Colors.red),
+                                              child: const Text(
                                                 "OKAY",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontFamily: "Inter"),
                                               ),
-                                              style: ElevatedButton.styleFrom(
-                                                  backgroundColor: Colors.red),
                                             ),
                                           ),
                                         ],
@@ -197,7 +197,7 @@ class _CardDesignState extends State<CardDesign> {
                                   }
                                   setState(() {});
                                 },
-                                icon: Icon(Icons.add_rounded),
+                                icon: const Icon(Icons.add_rounded),
                                 color: Colors.black54,
                                 style: IconButton.styleFrom(
                                     elevation: 2,
@@ -207,10 +207,10 @@ class _CardDesignState extends State<CardDesign> {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 12),
+                            padding: const EdgeInsets.only(right: 12),
                             child: Text(
                               "${widget.showPrice}\$",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                           ),
