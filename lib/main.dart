@@ -43,19 +43,20 @@ class _MyAppState extends State<MyApp> {
   List itemList = DB.items;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-    // itemList = DB.items;
+    Future.microtask(() {
+      int totalPrice = 0;
 
-    int totalPrice = 0;
+      itemList.forEach((element) {
+        totalPrice += int.parse(element.itemPrice.toString()) *
+            int.parse(element.itemQuantity.toString());
+      });
 
-    itemList.forEach((element) {
-      totalPrice += int.parse(element.itemPrice.toString()) *
-          int.parse(element.itemQuantity.toString());
+      Provider.of<TotalAmount>(context, listen: false)
+          .increaseAmount(totalPrice);
     });
-    Provider.of<TotalAmount>(context, listen: false).increaseAmount(totalPrice);
-    // print("Maybe working $totalPrice");
   }
 
   @override
