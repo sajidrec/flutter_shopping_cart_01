@@ -164,13 +164,15 @@ class _CardDesignState extends State<CardDesign> {
                                           "Congratulations!",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w700),
+                                              fontWeight: FontWeight.w700,
+                                              fontFamily: "Inter"),
                                         ),
                                         content: Text(
                                           "You have added \n5\n${widget.itemTitle} on your bag!",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w600),
+                                              fontWeight: FontWeight.w600,
+                                              fontFamily: "Inter"),
                                         ),
                                         actions: [
                                           SizedBox(
@@ -182,7 +184,8 @@ class _CardDesignState extends State<CardDesign> {
                                               child: Text(
                                                 "OKAY",
                                                 style: TextStyle(
-                                                    color: Colors.white),
+                                                    color: Colors.white,
+                                                    fontFamily: "Inter"),
                                               ),
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.red),
