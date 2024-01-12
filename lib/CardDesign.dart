@@ -182,7 +182,8 @@ class _CardDesignState extends State<CardDesign> {
                                                 Navigator.of(context).pop();
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                  backgroundColor: Colors.red),
+                                                  backgroundColor: Colors.red,
+                                                  elevation: 3),
                                               child: const Text(
                                                 "OKAY",
                                                 style: TextStyle(

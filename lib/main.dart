@@ -121,8 +121,8 @@ class _MyAppState extends State<MyApp> {
                         duration: Duration(milliseconds: 1500),
                       ));
                     },
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red, elevation: 3),
                     child: const Text(
                       "CHECK OUT",
                       style: TextStyle(color: Colors.white, fontSize: 16),
